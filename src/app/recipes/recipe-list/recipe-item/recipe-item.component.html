@@ -1,3 +1,9 @@
-<p>
-  recipe-item works!
-</p>
+<a href="#" class="list-group-item justify-content-between" (click)="onSelect(recipe)">
+  <div class="pull-left">
+    <h4>{{ recipe.name }}</h4>
+    <p> {{ recipe.description }}</p>
+  </div>
+  <span class="pull-right">
+    <img width="75" class="img-responsive" [src]="recipe.imagePath" [alt]="recipe.name"/>
+  </span>
+</a>
