@@ -1,4 +1,4 @@
-<a href="#" class="list-group-item justify-content-between" (click)="onSelect(recipe)">
+<a href="javascript:void(0)" [class.active]="recipe == current" class="pointer list-group-item justify-content-between" (click)="onSelect(recipe)">
   <div class="pull-left">
     <h4>{{ recipe.name }}</h4>
     <p> {{ recipe.description }}</p>
