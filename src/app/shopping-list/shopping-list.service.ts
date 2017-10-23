@@ -1,5 +1,5 @@
 import {Ingredient} from '../shared/ingredient.model';
-import {EventEmitter} from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 /**
  * Created by sheikhu on 21/10/17.
  */
@@ -8,7 +8,7 @@ export class ShoppingListService {
     new Ingredient('Apples', 5),
     new Ingredient('Tomatoes', 10)
   ];
-  ingredientAdded = new EventEmitter<Ingredient[]>();
+  ingredientAdded = new Subject<Ingredient[]>();
 
   constructor() {}
 
@@ -20,7 +20,7 @@ export class ShoppingListService {
       this.ingredients.push(ingredient);
     }
     if (emitEvent) {
-      this.ingredientAdded.emit(this.getIngredients());
+      this.ingredientAdded.next(this.getIngredients().slice());
     }
   }
 
@@ -32,6 +32,6 @@ export class ShoppingListService {
     ingredients.forEach((ingredient: Ingredient) => {
       this.addIngredient(ingredient, false);
     });
-    this.ingredientAdded.emit(this.ingredients.slice());
+    this.ingredientAdded.next(this.ingredients.slice());
   }
 }
