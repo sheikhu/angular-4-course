@@ -18,8 +18,8 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="btnGroupManage">
         <a class="dropdown-item pointer" (click)="addToShoppingList(recipe.ingredients)">To Shopping List</a>
-        <a class="dropdown-item" href="#">Edit Recipe</a>
-        <a class="dropdown-item" href="#">Delete</a>
+        <a class="dropdown-item pointer" (click)="onRecipeEdit()">Edit Recipe</a>
+        <a class="dropdown-item pointer" href="#">Delete</a>
       </div>
     </div>
   </div>

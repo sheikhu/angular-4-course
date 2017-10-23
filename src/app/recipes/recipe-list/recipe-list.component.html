@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col">
-    <button class="btn btn-success">New Recipe</button>
+    <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
   </div>
 </div>
 <hr>
 <div class="row">
   <div class="col">
     <div class="list-group">
-      <app-recipe-item (click)="onRecipeSelected(item)" *ngFor="let item of recipes" [recipe]="item" [current]="current"></app-recipe-item>
+      <app-recipe-item *ngFor="let item of recipes" [recipe]="item"></app-recipe-item>
     </div>
   </div>
 </div>

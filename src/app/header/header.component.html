@@ -2,21 +2,21 @@
   <a class="navbar-brand" href="#">{{ brand }}</a>
   <div class="collapses navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" [ngClass]="{active: activeFeature === 'recipe'}">
-        <a class="nav-link" href="#" (click)="onSelect('recipe')">Recipes <span class="sr-only">(current)</span></a>
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a class="nav-link" [routerLink]="['recipes']">Recipes</a>
       </li>
-      <li class="nav-item" [ngClass]="{active: activeFeature === 'shopping-list'}">
-        <a class="nav-link" href="#" (click)="onSelect('shopping-list')">Shopping List</a>
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a class="nav-link" [routerLink]="['shopping-list']">Shopping List</a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-toggler-right">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a appDropdown class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Manage
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Save Data</a>
-          <a class="dropdown-item" href="#">Fetch Data</a>
+          <a class="dropdown-item">Save Data</a>
+          <a class="dropdown-item">Fetch Data</a>
         </div>
       </li>
     </ul>

@@ -29,6 +29,13 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
+  getRecipe(name: string) {
+    return this.recipes.find((recipe: Recipe) => {
+      return recipe.name === name;
+    });
+
+  }
+
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
   }
