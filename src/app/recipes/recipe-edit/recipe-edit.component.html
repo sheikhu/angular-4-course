@@ -1,14 +1,73 @@
-<form name="recipe-form">
-  <div class="form-group">
+<h4 *ngIf="recipe">{{ recipe.name }}</h4>
+<form name="recipe-form" [formGroup]="recipeForm" (submit)="onSubmit()">
+  <div
+      class="form-group"
+       [ngClass]="{
+       'has-success': recipeForm.get('name').valid,
+       'has-danger': !recipeForm.get('name').valid
+       }">
     <label for="name">Name</label>
-    <input type="text" id="name" class="form-control">
+    <input type="text" formControlName="name" id="name" class="form-control">
   </div>
-  <div class="form-group">
+  <div
+    class="form-group"
+    [ngClass]="{
+       'has-success': recipeForm.get('imagePath').valid,
+       'has-danger': !recipeForm.get('imagePath').valid
+       }"
+  >
+    <label for="name">Image URL</label>
+    <input #imagePath formControlName="imagePath" type="text" id="imagePath" class="form-control">
+  </div>
+  <div class="row" *ngIf="imagePath.value">
+    <div class="col">
+      <img style="height: 200px;" [src]="imagePath.value" alt="image" class="img-thumbnail">
+
+    </div>
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{
+       'has-success': recipeForm.get('description').valid,
+       'has-danger': !recipeForm.get('description').valid
+       }"
+  >
     <label for="description">Description</label>
-    <textarea id="description" name="description" class="form-control"></textarea>
+    <textarea id="description" formControlName="description" class="form-control"></textarea>
   </div>
+
+  <div class="form-group" formArrayName="ingredients">
+
+    <div class="row mb-2"
+         *ngFor="let ingredient of ingredients.controls; let i = index"
+         [formGroupName]="i">
+      <div class="col-6"
+           [ngClass]="{
+       'has-success': ingredient.controls.name.valid,
+       'has-danger': !ingredient.controls.name.valid
+       }"
+      >
+        <input formControlName="name" type="text" class="form-control">
+      </div>
+      <div class="col-4"
+           [ngClass]="{
+       'has-success': ingredient.controls.amount.valid,
+       'has-danger': !ingredient.controls.amount.valid
+       }">
+
+        <input type="number" formControlName="amount" class="form-control">
+      </div>
+      <div class="col-2">
+        <a (click)="onDeleteIngredient(i)" style="font-size: 30px;" class="pointer text-danger"><i class="ion-ios-close-outline"></i></a>
+      </div>
+    </div>
+    <hr>
+    <button type="button" class="btn btn-success" (click)="addIngredient()">Add Ingredient</button>
+
+  </div>
+
   <div class="form-group">
-    <button class="btn btn-primary" *ngIf="editMode">Update</button>
-    <button class="btn btn-primary" *ngIf="!editMode">Create</button>
+    <button class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
+    <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
   </div>
 </form>

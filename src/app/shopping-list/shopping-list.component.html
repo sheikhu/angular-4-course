@@ -3,10 +3,12 @@
     <app-shopping-edit></app-shopping-edit>
     <hr>
     <div class="list-group">
-      <a
+      <a href="javascript:void(0)"
         style="cursor: pointer"
         class="list-group-item justify-content-between"
         *ngFor="let ingredient of ingredients"
+        (click)="onEditItem(ingredient)"
+        [ngClass]="{active: ingredient == current}"
       >
       {{ ingredient.name }} <span class="badge badge-primary badge-pill">{{ ingredient.amount }}</span>
       </a>

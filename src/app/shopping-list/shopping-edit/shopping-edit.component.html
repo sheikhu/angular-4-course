@@ -1,21 +1,36 @@
 <div class="row">
   <div class="col">
-    <form>
+    <form #shoppingForm="ngForm" (submit)="onSaveItem(shoppingForm)">
       <div class="row">
         <div class="col-sm-4 form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" class="form-control" appAutoFocus #nameInput>
+          <input
+            ngModel
+            required
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            appAutoFocus>
         </div>
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
-          <input type="number" id="amount" class="form-control" #amountInput>
+          <input
+            ngModel
+            required
+            type="number"
+            id="amount"
+            name="amount"
+            class="form-control"
+          [pattern]="'^[1-9]+[0-9]*'">
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <button class="btn btn-success" type="button" (click)="onAddItem(nameInput.value)">Add</button>
-          <button class="btn btn-danger" type="button">Delete</button>
-          <button class="btn btn-primary" type="button">Clear</button>
+          <button *ngIf="editMode" [disabled]="!shoppingForm.valid" class="btn btn-success" type="submit">Update</button>
+          <button *ngIf="!editMode" [disabled]="!shoppingForm.valid" class="btn btn-success" type="submit">Add</button>
+          <button *ngIf="editMode" class="btn btn-danger" type="button" (click)="onDelete()">Delete</button>
+          <button [disabled]="!shoppingForm.touched" class="btn btn-primary" type="button" (click)="clear(shoppingForm)">Clear</button>
         </div>
       </div>
     </form>
