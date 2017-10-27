@@ -10,13 +10,13 @@
       </li>
     </ul>
     <ul class="navbar-nav navbar-toggler-right">
-      <li class="nav-item dropdown">
-        <a appDropdown class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" appDropdown>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Manage
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item">Save Data</a>
-          <a class="dropdown-item">Fetch Data</a>
+          <a class="dropdown-item pointer" (click)="onSave()">Save Data</a>
+          <a class="dropdown-item pointer" (click)="onFetch()">Fetch Data</a>
         </div>
       </li>
     </ul>
