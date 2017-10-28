@@ -9,7 +9,6 @@ import { Directive, HostBinding, HostListener, OnInit } from '@angular/core';
 export class DropdownDirective implements OnInit {
   @HostBinding('class.show') opened = false;
 
-
   constructor() {}
 
   ngOnInit(): void {

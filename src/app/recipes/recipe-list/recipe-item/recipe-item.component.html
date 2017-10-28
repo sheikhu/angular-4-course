@@ -1,7 +1,7 @@
 <a [routerLink]="[recipe.name]" routerLinkActive="active" class="pointer list-group-item justify-content-between" (click)="onSelect(recipe)">
   <div class="pull-left">
     <h4>{{ recipe.name }}</h4>
-    <p> {{ recipe.description }}</p>
+    <p> {{ recipe.description | truncate:20 }}</p>
   </div>
   <span class="pull-right">
     <img width="75" class="img-responsive" [src]="recipe.imagePath" [alt]="recipe.name"/>

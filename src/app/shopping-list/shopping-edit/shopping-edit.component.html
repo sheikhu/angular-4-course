@@ -30,7 +30,7 @@
           <button *ngIf="editMode" [disabled]="!shoppingForm.valid" class="btn btn-success" type="submit">Update</button>
           <button *ngIf="!editMode" [disabled]="!shoppingForm.valid" class="btn btn-success" type="submit">Add</button>
           <button *ngIf="editMode" class="btn btn-danger" type="button" (click)="onDelete()">Delete</button>
-          <button [disabled]="!shoppingForm.touched" class="btn btn-primary" type="button" (click)="clear(shoppingForm)">Clear</button>
+          <button [disabled]="!shoppingForm.touched" class="btn btn-primary" type="button" (click)="clear()">Clear</button>
         </div>
       </div>
     </form>

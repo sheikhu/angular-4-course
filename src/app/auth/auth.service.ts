@@ -18,14 +18,13 @@ export class AuthService {
       .then(( response ) =>  {
       console.log(response);
       this.router.navigate(['/recipes']);
-        firebase.auth().currentUser.getToken()
+        firebase.auth().currentUser.getIdToken()
           .then((token: string) => this.token = token);
       })
       .catch(( error ) => console.log(error));
   }
 
   isAuthenticated() {
-    console.log(this.token);
     return this.token != null;
   }
 

@@ -1,4 +1,6 @@
-<h4 *ngIf="recipe">{{ recipe.name }}</h4>
+<h4 *ngIf="editMode">{{ recipe.name }}</h4>
+
+<h4 *ngIf="!editMode">New Recipe</h4>
 <form name="recipe-form" [formGroup]="recipeForm" (submit)="onSubmit()">
   <div
       class="form-group"
