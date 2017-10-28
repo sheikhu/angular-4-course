@@ -10,7 +10,9 @@ import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class RecipeService {
-  private recipes: Recipe[] = [];
+  private recipes: Recipe[] = [
+    new Recipe('Salade', 'Salade de chevre', 'image', [])
+  ];
   recipesChanges = new Subject<Recipe[]>();
   recipeSelected= new Subject<Recipe>();
 
