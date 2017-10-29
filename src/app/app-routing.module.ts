@@ -13,3 +13,5 @@ const appRoutes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
+export default appRoutes;

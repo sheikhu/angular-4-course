@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title = 'app';
   ngOnInit(): void {
     firebase.initializeApp({
       apiKey: 'AIzaSyBJf_hmhTav0o7z9iEWVolVFAvg-gE8vYs',

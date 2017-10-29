@@ -1,4 +1,4 @@
-<a [routerLink]="[recipe.name]" routerLinkActive="active" class="pointer list-group-item justify-content-between" (click)="onSelect(recipe)">
+<a [@itemState]="state" [routerLink]="[recipe.name]" routerLinkActive="active" class="pointer list-group-item justify-content-between" (click)="onSelect(recipe)">
   <div class="pull-left">
     <h4>{{ recipe.name }}</h4>
     <p> {{ recipe.description | truncate:20 }}</p>

@@ -11,6 +11,7 @@ import { AuthService } from './auth/auth.service';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     AppRoutingModule,
     AuthModule,
