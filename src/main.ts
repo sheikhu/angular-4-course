@@ -1,4 +1,5 @@
 import { enableProdMode } from '@angular/core';
+import 'angular2-notifications';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';

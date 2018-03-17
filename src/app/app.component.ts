@@ -8,6 +8,11 @@ import * as firebase from 'firebase';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  options = {
+    position: ['top', 'right'],
+    showProgressBar: true,
+    timeOut: 5000
+  }
   ngOnInit(): void {
     firebase.initializeApp({
       apiKey: 'AIzaSyBJf_hmhTav0o7z9iEWVolVFAvg-gE8vYs',

@@ -6,8 +6,10 @@
 <hr>
 <div class="row">
   <div class="col">
-    <div class="list-group">
-      <app-recipe-item *ngFor="let item of recipes" [recipe]="item"></app-recipe-item>
+    <div class="list-group" *ngIf="recipes;else loading">
+      <app-recipe-item *ngFor="let item of recipes" [recipe]="item" [@fadeIn]="recipes.length"></app-recipe-item>
     </div>
+    <ng-template #loading>Loading User Data...</ng-template>
+
   </div>
 </div>

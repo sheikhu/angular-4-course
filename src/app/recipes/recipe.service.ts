@@ -10,11 +10,9 @@ import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class RecipeService {
-  private recipes: Recipe[] = [
-    //new Recipe('Salade', 'Salade de chevre', 'image', [])
-  ];
+  private recipes: Recipe[] = [];
   recipesChanges = new Subject<Recipe[]>();
-  recipeSelected= new Subject<Recipe>();
+  recipeSelected = new Subject<Recipe>();
 
 
   constructor(private shoppingListService: ShoppingListService, private http: Http) {}
